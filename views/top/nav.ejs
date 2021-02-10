@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">책쫌 사자</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        
+        <% if(sess === undefined) { %>
+          <a class="nav-link" href="/users/login">로그인</a>
+          <li><a class="nav-link" href='/users/signup' ">회원가입</a></li>
+
+        <% } else { %>
+          <a class="nav-link" href="/users/logout">로그아웃</a>
+
+        <% } %>
+
+      </li>
+      <% if(sess == undefined) {%>
+      <a class="nav-link"> 환영합니다 어서 로그인을 해서 책을 사세요<a>
+      <% } else{ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/mybasket">장바구니</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            내정보
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/users/mypage">마이페이지</a>
+            <a class="dropdown-item" href="/users/cardadd">카드등록</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/users/addressadd">배송지 등록</a>
+          </div>
+        </li>
+        <% } %>
+    </ul>
+  
+  </div>
+</nav>

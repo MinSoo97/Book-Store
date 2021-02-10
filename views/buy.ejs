@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+      <% include ./top/head.ejs %>
+    <title></title>
+</head>
+<body>
+    <div><% include ./top/nav.ejs %></div>
+  </body>
+  <br>
+  <form action="/books/bookdetail/<%=booknum %>/buysucc" method="POST">
+  
+  
+  
+    <div>주문수량</div>
+  <input type="number" name="bookcount" value= "<%= sesscount %>"> 
+  <div>평점<div>
+  <select name="book_score">
+    <% for(var i = 0; i < 5; i++ ) { %>
+      <option value="<%= i+1 %>"><%= i+1 %> </option>
+    <%} %>
+  </select>
+  <br> <br>
+  <body>
+    <td>내 쿠폰: 
+      <select name="select_coupon">
+        <% for(var i = 0; i < mycoupons.length; i++ ) { %>
+          <option value="<%= mycoupons[i].Coupon_Kind %>">쿠폰번호: <%= mycoupons[i].Coupon_Num %> 쿠폰종류: <%= mycoupons[i].Coupon_Kind %> <% if(mycoupons[i].Coupon_Kind == '10') { %>
+            % 할인
+            <% } else {%>
+              원 할인
+              <% } %> </option>
+        <%} %>
+      </select>
+    </td>
+  </body>
+  <br> <br>
+
+<body>
+  <td>결제카드: 
+    <select name="select_card">
+      <% for(var i = 0; i < mypagecard.length; i++ ) { %>
+        <option value="<%= mypagecard[i].Credit_Num %>">카드번호: <%= mypagecard[i].Credit_Num %> 카드종류: <%= mypagecard[i].Credit_Kind %> 유효기한: <%= mypagecard[i].Credit_Validity %> </option>
+      <%} %>
+    </select>
+  </td>
+</body>
+<br> <br>
+<body>
+  <td>배송지: 
+    <select name="select_add">
+      <% for(var i = 0; i < mypageadd.length; i++ ) { %>
+        <option value="<%= mypageadd[i].Address_Num %>">기본주소:<%= mypageadd[i].Address_Base %> 상세주소: <%= mypageadd[i].Address_Detail %> 우편번호:<%= mypageadd[i].Address_Post %> </option>
+      <%} %>
+
+    </select>
+  </td>
+</body>
+<br>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit" >구매하기</button>
+</form>
+
+</html>
+
+

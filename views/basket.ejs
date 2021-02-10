@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <% include ./top/head.ejs %>
+  
+  </head>
+  <body>
+  <div><% include ./top/nav.ejs %></div>
+  </body>
+  
+  <h1>장바구니 정보</h1>
+  <br>
+  <div>장바구니 생성날짜 : <%= mypagebasketinfo[0].Basket_Date %></div>
+  
+    <table id="basketlist" class="table-bordered table-hover b">
+      <thead>
+      <tr>
+        <th>도서명</th>
+        <th>도서 가격</th>
+        <th>수량</th>
+        <th>총가격</th>
+        <th >삭제</th>
+      </tr> 
+      </thead>
+
+      <tbody>
+        <% for(var i = 0; i < mypagebasketinfo.length; i++ ) { %>
+      <tr>
+        <td align='center'><%= mypagebasketinfo[i].Book_Name %></td>
+        <td align='center'><%= mypagebasketinfo[i].Book_Price %></td>
+        <td align='center'><%= mypagebasketinfo[i].BasketInfo_Count %></td>
+        <td align='center'><%= mypagebasketinfo[i].BasketInfo_Count * mypagebasketinfo[i].Book_Price %></td>
+        <td align='center'><button class="btn btn-outline-success my-2 my-sm-0"  onclick="location.href='#'">삭제</button></td>
+      </tr>
+    <% } %>
+    </tbody>
+    </table>
+    <td align='center'><button class="btn btn-outline-success my-2 my-sm-0"  onclick="location.href='/users/mybasket/<%= mypagebasketinfo[0].Basket_Num %>'">주문하기</button></td>
+
+</html>

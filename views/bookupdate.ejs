@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <% include ./top/head.ejs %>
+    <title></title>
+</head>
+<body>
+    <div><% include ./top/nav.ejs %></div>
+  </body>
+<body>
+<h3>도서수정</h3>
+<form action="/books/bookdetail/<%=booknum %>" method="post">
+    <div>
+        <div>
+            <div>도서명 : </div>
+            <div><input type="text" name="book_Name"></div>
+        </div>
+        <div>
+            <div>수량 : </div>
+            <div><input type="text" name="book_Count"></div>
+        </div>
+        <div>
+            <div>가격 : </div>
+            <div><input type="text" name="book_Price"></div>
+        </div>
+        <div>
+            <div><input type="submit" value="수정완료"></div>
+        </div>
+
+    </div>
+</form>        
+</body>
+
+</html>

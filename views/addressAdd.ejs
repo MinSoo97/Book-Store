@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <% include ./top/head.ejs %>
+    <title></title>
+</head>
+<body>
+    <div><% include ./top/nav.ejs %></div>
+  </body>
+<body>
+<h3>배송지 등록</h3>
+<form action="/users/addressadd" method="post">
+    <div>
+        <div>
+            <div>기본주소 : </div>
+            <div><input type="text" name="address_Base"></div>
+        </div>
+        <div>
+            <div>상세주소 : </div>
+            <div><input type="text" name="address_Detail"></div>
+        </div>
+        <div>
+            <div>우편번호 : </div>
+            <div><input type="text" name="address_Post"></div>
+        </div>
+        <div>
+            <div><input type="submit" value="등록완료"></div>
+        </div>
+
+    </div>
+</form>        
+</body>
+
+</html>

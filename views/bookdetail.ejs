@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<style>
+  table {
+    width: 50%;
+    border: 1px solid #333333;
+  }
+  td {
+    padding: 10px;
+    border: 1px solid #333333;
+  }
+  .a {
+    border-collapse: separate;
+  }
+  .b {
+    border-collapse: collapse;
+  }
+</style>
+<html>
+  <head>
+    <% include ./top/head.ejs %>
+  </head>
+  <body>
+      <div><% include ./top/nav.ejs %></div>  
+  </body>
+  <h1>도서상세정보
+  </h1>
+
+  <body>
+    <form action="/books/bookdetail/<%= bookdetail.Book_Num %>/howorder" method = "POST">
+  <table id="bookdetails" class="b">
+      <thead>
+        <tr>
+          <th>도서번호</th><th>도서명</th><th>재고량</th><th>가격</th> <th>수량</th> <th>평점</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>B<%= bookdetail.Book_Num %></td>
+          <td><%= bookdetail.Book_Name %></td>
+          <td><%= bookdetail.Book_Count %></td>
+          <td><%= bookdetail.Book_Price %></td>
+          <td>
+            <dd> 
+              <input type="number" name="bookcount"> 
+            </dd>
+          </td>
+          <td><%= score.toFixed(1) %></td>>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"name ="buy" value="buy">바로구매</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"name ="basket" value="basket">장바구니 담기</button>
+  </body>
+</html>

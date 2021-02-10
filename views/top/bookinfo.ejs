@@ -1,0 +1,45 @@
+<style>
+  table {
+    width: 50%;
+    border: 1px solid #333333;
+  }
+  td {
+    padding: 10px;
+    border: 1px solid #333333;
+  }
+  .a {
+    border-collapse: separate;
+  }
+  .b {
+    border-collapse: collapse;
+  }
+</style>
+<h1>도서목록</h1>
+
+  <table id="bookinfo" class="table-bordered table-hover b">
+    <thead>
+    <tr>
+      <td align='center'>목록</th>
+      <td align='center'>도서명</th>
+      <td align='center'>가격</th>
+       <% if(sess == 'kms3323') { %>
+       <td align='center' >수정</th>
+      <% } %>
+    </tr> 
+    </thead>
+    
+    <tbody>
+    <% for(var i = 0; i < book.length; i++ ) { %>
+      <tr onclick="location.href='/books/bookdetail/<%= book[i].Book_Num %>'">
+        <td align='center'><%= i+1 %></td>
+        <td><%= book[i].Book_Name %></td>
+        <td align='center'><%= book[i].Book_Price %></td>
+        <% if(sess == 'kms3323') { %>
+
+        <td align='center'><form action='/books/bookdetail/<%= book[i].Book_Num %>/bookupdate'><button class="btn btn-outline-success my-2 my-sm-0">수정</button></form></td>
+        <% } %>
+
+      </tr>
+    <% } %>
+    </tbody>
+  </table>

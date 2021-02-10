@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+      <% include ./top/head.ejs %>
+    <title></title>
+</head>
+<body>
+    <div><% include ./top/nav.ejs %></div>
+  </body>
+  <br>
+  <form action="/users/mybasket/<%= mypagebasketinfo[0].Basket_Num %>/buysucc" method="POST">
+  <div>장바구니 구매</div>
+  <table id="mypageorderlist" class="table-bordered table-hover b">
+    <thead>
+    <tr>
+      <th>도서명</th>
+      <th>도서가격</th>
+      <th>수량</th>
+      <th>가격</th>
+      <th>평점</th>>
+     
+    </tr> 
+    </thead>
+  <tbody>
+    <% for(var i = 0; i < mypagebasketinfo.length; i++ ) { %>
+  <tr>
+    <td align='center'><%= mypagebasketinfo[i].Book_Name %></td>
+    <td align='center'><%= mypagebasketinfo[i].Book_Price %></td>
+    <td align='center'><%= mypagebasketinfo[i].BasketInfo_Count %></td>
+    <td align='center'> <%= mypagebasketinfo[i].BasketInfo_Count * mypagebasketinfo[i].Book_Price %></td>
+    <td>
+      <select name="book_scores">
+          <% for(var j = 0; j < 5; j++ ) { %>
+            <option value="<%= j+1 %>"><%= j+1 %> </option>
+          <%} %>
+        </select>
+      </td>
+    <br>
+
+  </tr>
+<% } %>
+</tbody>
+
+</table>
+  <br> <br>
+<body>
+  <td>결제카드: 
+    <select name="select_card">
+      <% for(var i = 0; i < mypagecard.length; i++ ) { %>
+        <option value="<%= mypagecard[i].Credit_Num %>">카드번호: <%= mypagecard[i].Credit_Num %> 카드종류: <%= mypagecard[i].Credit_Kind %> 유효기한: <%= mypagecard[i].Credit_Validity %> </option>
+      <%} %>
+    </select>
+  </td>
+</body>
+<br> <br>
+<body>
+  <td>배송지: 
+    <select name="select_add">
+      <% for(var i = 0; i < mypageadd.length; i++ ) { %>
+        <option value="<%= mypageadd[i].Address_Num %>">기본주소: <%= mypageadd[i].Address_Base %> 상세주소: <%= mypageadd[i].Address_Detail %> 우편번호: <%= mypageadd[i].Address_Post %> </option>
+      <%} %>
+    </select>
+  </td>
+</body>
+<br><br>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit" >구매하기</button>
+</form>
+
+</html>
+
+

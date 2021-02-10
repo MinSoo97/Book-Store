@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <% include ./top/head.ejs %>
+    <title></title>
+</head>
+<body>
+    <div><% include ./top/nav.ejs %></div>
+  </body>
+<body>
+<h3>카드등록</h3>
+<form action="/users/cardadd" method="post">
+    <div>
+        <div>
+            <div>카드 번호 : </div>
+            <div><input type="text" name="card_Number"></div>
+        </div>
+        <div>
+            <div>카드 유효기간 : </div>
+            <div><input type="text" name="card_Validity"></div>
+        </div>
+        <div>
+            <div>카드 종류 : </div>
+            <div><input type="text" name="card_Kind"></div>
+        </div>
+        <div>
+            <div><input type="submit" value="등록완료"></div>
+        </div>
+
+    </div>
+</form>        
+</body>
+
+</html>
